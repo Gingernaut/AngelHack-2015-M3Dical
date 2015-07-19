@@ -30,7 +30,7 @@ span {
 #content {
     height: 100%;
     width: 100%;
-    text-align:center;
+    text-align: center;
 }
 
 #logo {
@@ -51,10 +51,10 @@ span {
 }
 
 #textarea {
-display:inline-block;
-margin-top: 4em;
-margin-left: 2em;
-margin-right: 2em;
+    display: inline-block;
+    margin-top: 4em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 #selection {
