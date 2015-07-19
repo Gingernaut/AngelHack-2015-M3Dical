@@ -1,8 +1,12 @@
-﻿
-<script>
-    global.openPage = function () {
-        window.location.href = "hand.html";
-
+﻿<script>
+    var display_brace = function () {
+        alert("xhr");
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            console.log(this.responseText + " asdfad");
+        }
+        xhr.open("GET","127.0.0.1:3000/scale?x=10&y=10",true);
+        xhr.send();
     }
 
 </script>
@@ -23,13 +27,12 @@
 
             <h1>Review final brace</h1>
 
-            <div id="splint_preview">Image of modified Scan should go here</div>
-
+            <div id="splint_preview"><iframe src="http://a360.co/1KdXWuH" style="width:100%; height:100%;"></iframe></div>
             <div id="selection">
                 <div class="svg-wrapper" id="login">
                     <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
                         <rect class="shape" height="60" width="320" />
-                        <div class="text">
+                        <div class="text" style="margin:0px;">
                             <a href=""><span></span>Print 3D brace</a>
                         </div>
                     </svg>
@@ -41,8 +44,8 @@
         #splint_preview {
             margin-top: 1.5em;
             border: 2px solid green;
-            height: 400px;
-            width: 600px;
+            height: 750px;
+            width: 900px;
             margin-left: auto;
             margin-right: auto;
         }

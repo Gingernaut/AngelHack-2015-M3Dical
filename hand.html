@@ -11,6 +11,7 @@
 
     html {
         overflow: hidden;
+        font-family: 'Lato','Century Gothic', sans-serif;
     }
 
     #handimage img {
@@ -20,23 +21,22 @@
     #brace {
         width: 50px;
         height: 120px;
-        background-image: url("pictures/overlay1.png");
+        /*background-image: url("pictures/overlay1.png");*/
         opacity: .9;
         position: absolute;
-        margin-top: 270px;
-        margin-left: 500px;
         background-repeat: no-repeat;
         -ms-background-size: cover;
         background-size: cover;
         background-position: center;
+        padding-top: 22em;
     }
 </style>
 <script>
 
     var h = 120;
     var w = 50;
-    var x = 530;
-    var y = 300;
+    var x = 150;
+    var y = -90;
     var x_scale = 1;
     var y_scale = 1;
     var deg = 0;
@@ -103,7 +103,8 @@
     <div id="rectangle">
         <h1>Place Hand Below</h1>
         <div id="handimage">
-            <div id="brace"></div>
+            <!--<div id="brace"></div>-->
+            <img src="pictures/overlay1.png" id="brace" />
 
         </div>
     </div>

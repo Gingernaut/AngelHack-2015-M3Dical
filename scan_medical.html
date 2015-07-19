@@ -28,12 +28,57 @@
                         </div>
                     </svg>
                 </div>
+                <div class="text" style="margin-top:5em;">
+                    <a onclick="capture()"><span></span>Scan Insurance Card and Drivers License</a>
+                </div>
             </div>
-            <div style="border: 1px solid red; height: 10em;
-width: 25em;
-margin-left: auto;
-margin-right: auto;"><h1>Show scanned medical documents here, maybe alongside the plaintext interpretation of the documents. Ask if they're correct and allow user to edit them otherwise.</h1></div>
+            <div id="txt_upload"></div>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function capture() {
+        sprout.capture().then(function (id) {
+            return sprout.getPicture(id, sprout.SNAPSHOT);
+        }).then(function (object) {
+            var image = document.createElement("img");
+            image.src = "data:image/png;base64," + object.picture.Image;
+            image.width = 1024;
+            image.height = 720;
+            var result = document.getElementById("txt_upload");
+            result.appendChild(image);
+        }).then(function () {
+        }).fail(function (e) {
+            alert(e);
+        });
+    }
+
+
+    /*
+    function segment() {
+        clearResult();
+        ls.start();
+        sprout.capture().then(function (id) {
+            return sprout.getPicture(id);
+        }).then(function (object) {
+            for (var i = 0; i < object.picture.Children.length; i++) {
+                var image = document.createElement("img");
+                image.src = "data:image/png;base64," + object.picture.Children[i].Image;
+                image.width = object.picture.Children[i].PhysicalBoundaries.Size.Width * 2;
+                image.height = object.picture.Children[i].PhysicalBoundaries.Size.Height * 2;
+                image.className = "segment img-thumbnail";
+                var result = document.getElementById("result");
+                result.appendChild(image);
+            }
+            console.log(object);
+        }).then(function () {
+            ls.stop();
+            showImage();
+        }).fail(function (e) {
+            ls.stop();
+            showError(e);
+        });
+    }
+    */
+</script>
