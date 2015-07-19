@@ -26,6 +26,13 @@
   font-family: Helvetica;
 }
 
+.concept{
+  float:left;
+}
+
+.diagnosis{
+  float:right;
+}
 /**
 .arrow-right {
   display: inline-block;
