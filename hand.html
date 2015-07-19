@@ -20,12 +20,15 @@
     #brace {
         width: 50px;
         height: 120px;
-        background-color: #303030;
-        border: 1px solid black;
-        opacity: .5;
+        background-image: url("pictures/overlay1.png");
+        opacity: .9;
         position: absolute;
         margin-top: 270px;
         margin-left: 500px;
+        background-repeat: no-repeat;
+        -ms-background-size: cover;
+        background-size: cover;
+        background-position: center;
     }
 </style>
 <script>
@@ -96,15 +99,11 @@
 
     </script>
 </head>
-
 <body>
     <div id="rectangle">
-
         <h1>Place Hand Below</h1>
         <div id="handimage">
-
             <div id="brace"></div>
-
 
         </div>
     </div>

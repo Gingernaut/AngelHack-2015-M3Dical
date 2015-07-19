@@ -13,12 +13,9 @@
         var sprout = require('sprout');
         var matHandle = sprout.openMat('hand.html'); // overlay for the hand
     </script>
-
     <div id="outer_wrapper">
         <div id="content">
-
             <div class="spacer"></div>
-
             <h1 id="continue">Please place your injured hand on the pad below.</h1> <!-- what documents do we need? Also, continue should not appear untile documents are scanned-->
             <!-- maybe condtional formatting of the box, red you haven't scaned documents, green you're good to go-->
             <div id="selection">
@@ -30,48 +27,24 @@
                         </div>
                     </svg>
                 </div>
-
-
-                <div class="button" id="up" onmousedown="global.move_up();" onmouseup="global.stop();">
-                    up
-                </div>
-                <div class="button" id="down" onmousedown="global.move_down();" onmouseup="global.stop();">
-                    down
-                </div>
-                <div class="button" id="left" onmousedown="global.move_left();" onmouseup="global.stop();">
-                    left
-                </div>
-                <div class="button" id="right" onmousedown="global.move_right();" onmouseup="global.stop();">
-                    right
-                </div>
-
-                <div class="button" id="grow_h" onmousedown="global.grow_h();" onmouseup="global.stop();">
-                    grow_h
-                </div>
-                <div class="button" id="shrink_h" onmousedown="global.shrink_h();" onmouseup="global.stop();">
-                    shrink_h
-                </div>
-                <div class="button" id="grow_w" onmousedown="global.grow_w();" onmouseup="global.stop();">
-                    grow_w
-                </div>
-                <div class="button" id="shrink_w" onmousedown="global.shrink_w();" onmouseup="global.stop();">
-                    shrink_w
-                </div>
-
-                <div class="button" id="rot_right" onmousedown="global.rot_right();" onmouseup="global.stop();">
-                    rot_right
-                </div>
-                <div class="button" id="rot_left" onmousedown="global.rot_left();" onmouseup="    global.stop();">
-                    rot_left
-                </div>
-
                 <div id="button_wrapper">
-                    <img src="pictures/arrow.png" id="arrow1" />
-                    <img src="pictures/arrow.png" id="arrow2"/>
-                    <img src="pictures/arrow.png" id="arrow3"/>
-                    <img src="pictures/arrow.png" id="arrow4"/>
+                    <img src="pictures/arrow.png" id="arrow1" onmousedown="global.move_up();" onmouseup="global.stop();" />  
+                    <br />
+                    <img src="pictures/arrow.png" id="arrow4" onmousedown="global.move_left();" onmouseup="global.stop();" />
+                    <img src="pictures/arrow.png" id="arrow2" onmousedown="global.move_right();" onmouseup="global.stop();" />
+                    <br />
+                    <img src="pictures/arrow.png" id="arrow3" onmousedown="global.move_down();" onmouseup="global.stop();" />
                 </div>
+                
+                    <img style="margin-left: 10px; margin-right:10px; margin-top: 9em;" src="pictures/rotatel.png" onmousedown="global.rot_left();" onmouseup=" global.stop();" />
+                    <img style="margin-left: 10px; margin-right:10px;" src="pictures/rotate_r.png" onmousedown="global.rot_right();" onmouseup="global.stop();" />
+                
 
+                <img style="margin-left: 10px; margin-right:10px; height:60px; width:60px; margin-top: 9em;" src="pictures/growh.png" onmousedown="global.grow_h();" onmouseup="global.stop();" />
+                <img style="margin-left: 10px; margin-right:10px; height:60px; width:60px;" src="pictures/shrinkh.png" onmousedown="global.shrink_h();" onmouseup="global.stop();" />
+
+                <img style="margin-left: 10px; margin-right:10px; height:60px; width:60px; margin-top: 9em;" src="pictures/groww.png" onmousedown="global.grow_w();" onmouseup="global.stop();" />
+                <img style="margin-left: 10px; margin-right:10px; height:60px; width:60px;" src="pictures/shrinkw.png" onmousedown="global.shrink_w();" onmouseup="global.stop();" />
 
             </div>
             <script>
@@ -92,9 +65,8 @@
                 }
 
 
-
+                d
             </script>
-
         </div>
     </div>
 </body>
