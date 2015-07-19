@@ -33,6 +33,49 @@ span {
     text-align: center;
 }
 
+#button_wrapper {
+    border: 1px solid red;
+    height: 150px;
+    width: 150px;
+    display:inline-block;
+    clear:both;
+    position:absolute;
+}
+
+    #button_wrapper img {
+        width: 30px;
+        height: 30px;
+        position:absolute;
+    }
+
+    #arrow1 {
+        transform: rotate(-90deg);
+        top:0;
+        left:0;
+        right:0;
+    }
+
+    #arrow2 {
+        right:0;
+        top:0;
+        bottom:0;
+    }
+
+    #arrow3 {
+        transform: rotate(90deg);
+
+        bottom:0;
+        left:0;
+        right:0;
+    }
+
+    #arrow4 {
+        transform: rotate(180deg);
+        left:0;
+        top:0;
+        bottom:0;
+    }
+
 #logo {
     margin-top: 7em;
     background-image: url("pictures/logo.jpg");
