@@ -13,8 +13,6 @@
         var sprout = require('sprout');
         var matHandle = sprout.openMat('mat.html'); // program to scan medical paperwork
 
-        
-
     </script>
 
     <div id="outer_wrapper">
@@ -29,10 +27,12 @@
                     <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
                         <rect class="shape" height="60" width="320" />
                         <div class="text">
-                            <a href="Nurse_notes.html"><span></span>Continue</a>
+
+                            <a href="Nurse_notes.html" onclick="global.openPage()"><span></span>Continue</a>
                         </div>
                     </svg>
                 </div>
+                <!--<input type="button" onclick="global.openPage() "value="test"/>-->
             </div>
 
         </div>

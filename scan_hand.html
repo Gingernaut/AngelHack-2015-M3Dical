@@ -26,11 +26,29 @@
                     <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
                         <rect class="shape" height="60" width="320" />
                         <div class="text">
-                            <a href=""><span></span>Continue</a>
+                            <a onclick="capture()"><span></span>Scan Hand</a>
                         </div>
                     </svg>
                 </div>
             </div>
+
+            <script>
+
+                function capture() {
+                    sprout.capture().then(function (id) {
+                        return sprout.getPicture(id, sprout.SNAPSHOT);
+                    }).then(function (object) {
+                        var image = document.createElement("img");
+                        image.src = "data:image/png;base64," + object.picture.Image;
+                        image.width = 1024;
+                        image.height = 720;
+                        var result = matHandle.window.document.getElementById("handimage");
+                        result.appendChild(image);
+                    }).then(function () {
+                    }).fail(function (e) {
+                    });
+                }
+            </script>
 
         </div>
     </div>
