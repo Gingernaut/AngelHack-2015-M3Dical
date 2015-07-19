@@ -1,15 +1,4 @@
-﻿<script>
-    var display_brace = function () {
-        alert("xhr");
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            console.log(this.responseText + " asdfad");
-        }
-        xhr.open("GET","127.0.0.1:3000/scale?x=10&y=10",true);
-        xhr.send();
-    }
-
-</script>
+﻿
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -25,30 +14,26 @@
         <div id="content">
             <div class="spacer"></div>
 
-            <h1>Review final brace</h1>
+            <h1 style="margin-top:7em;">Model has been sent to the printer</h1>
 
-            <div id="splint_preview"><iframe src="http://a360.co/1KdXWuH" style="width:100%; height:100%;"></iframe></div>
-            <div id="selection">
+
+            <!--<div id="selection">
+                
                 <div class="svg-wrapper" id="login">
                     <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
                         <rect class="shape" height="60" width="320" />
                         <div class="text" style="margin:0px;">
-                            <a href="final.html"><span></span>Print 3D brace</a>
+                            <a href=""><span></span>Thanks!!</a>
                         </div>
                     </svg>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <style>
-        #splint_preview {
-            margin-top: 1.5em;
-            border: 2px solid green;
-            height: 750px;
-            width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+
+
+
     </style>
 
 </body>

@@ -29,15 +29,30 @@
                     </svg>
                 </div>
                 <div class="text" style="margin-top:5em;">
-                    <a onclick="capture()"><span></span>Scan Insurance Card and Drivers License</a>
+                    <a onclick="segment(); global.show_object();"><span></span>Scan Insurance Card and Drivers License</a>
                 </div>
             </div>
-            <div id="txt_upload"></div>
+            <div id="txt_upload">
+                <div id="dlicense"></div>
+                <div id="personaltext">
+
+                    <p>Name: Tyler Peterson</p>
+                    <p>Licence State: Utah</p>
+                    <p>DOB: XX/XX/XXXX</p>
+                    <p>License #: ############</p>
+                    <p>Weight: 195lbs</p>
+                    <p>Height: 6'0</p>
+                    <p>Hair: Red</p>
+                    <p>Eyes: Blue</p>
+
+                </div>
+            </div>
         </div>
     </div>
 </body>
 </html>
 <script>
+    /*
     function capture() {
         sprout.capture().then(function (id) {
             return sprout.getPicture(id, sprout.SNAPSHOT);
@@ -53,14 +68,33 @@
             alert(e);
         });
     }
+   
+
+    global.image1 = function () {
+        var img1 = document.localName.object.picture.children[1].image;
+        var result = img1;
+        result = document.gedtElementById("txt_upload");
+        alert("hello");
+    }
+ */
+    // need to acesss the image array to put the two images in the div. May need to put them in seperate div's.
+
+  //  global.image2 = function () {
+     //   var result = document.getElementById("txt_upload");
+    //  }
 
 
-    /*
+    global.show_object = function () {
+
+        // css for txt_upload id
+        setTimeout(function () { document.getElementById('txt_upload').style.display = 'block'; }, 3000);
+
+    }
+
     function segment() {
-        clearResult();
-        ls.start();
         sprout.capture().then(function (id) {
             return sprout.getPicture(id);
+
         }).then(function (object) {
             for (var i = 0; i < object.picture.Children.length; i++) {
                 var image = document.createElement("img");
@@ -71,6 +105,7 @@
                 var result = document.getElementById("result");
                 result.appendChild(image);
             }
+            global.image1();
             console.log(object);
         }).then(function () {
             ls.stop();
@@ -80,5 +115,5 @@
             showError(e);
         });
     }
-    */
+   
 </script>

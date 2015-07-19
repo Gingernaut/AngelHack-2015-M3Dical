@@ -159,3 +159,31 @@ h1 {
     margin-bottom: 1em;
     float: left;
 }
+
+#txt_upload {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 40em;
+    height: 30em;
+    display:none;
+}
+
+#dlicense {
+    height: 20em;
+    width: 14em;
+    float: left;
+    background-image: url("pictures/license.png");
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    margin-top: 3em;
+}
+
+#personaltext {
+    text-align: left;
+    margin-top: 3em;
+    float: right;
+    margin-right: 2em;
+}
