@@ -1,39 +1,28 @@
-﻿<!DOCTYPE html>
-<html lang="en-us">
+<!DOCTYPE html>
+<html lang="en" ng-app="AngelHack">
 <head>
-    <meta charset="utf-8" />
-    <!--meta content- width, and scale; for touchscreen do I want this to be scalable?-->
-    <title>m3Dical</title>
-    <link rel="stylesheet" href="reset.css" type="text/css" />
-    <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="app.js"></script>
-    <script src="angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-</head>
-<body>
-    <!--
-        <script type="text/javascript">
-            var sprout = require('sprout');
-            var matHandle = sprout.openMat('mat.html');
-        </script>
-    -->
-    <div id="outer_wrapper">
-        <div id="content">
-            <div class="spacer"></div>
-            <div id="logo"></div>
-            <h1>Emergency room made painless</h1>
-            <div id="selection">
-                <div class="svg-wrapper" id="login">
-                    <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
-                        <rect class="shape" height="60" width="320" />
-                        <div class="text">
-                            <a href="scan_medical.html"><span></span>Start</a>
-                        </div>
-                    </svg>
-                </div>
-            </div>
+  <link rel="stylesheet" type="text/css" href="main.css">
 
-        </div>
-    </div>
+</head>
+<body ng-controller="MainCtrlr">
+<div id="container">
+<img id="logo" src="assets/logo.jpg"></img>
+<div id="nav" ng-controller="navCtrlr">
+  <!--SVG NAV BAR-->
+  <a ui-sref="one"><span class="navMember">One</span></a>
+  <a ui-sref="two"><span class="navMember">Two</span></a>
+  <a ui-sref="three"><span class="navMember">Three</span></a>
+  <a ui-sref="four"><span class="navMember">Four</span></a>
+  <a ui-sref="five"><span class="navMember">Five</span></a>
+
+
+  <!--END SVG NAV BAR-->
+<div class="MainCtrlr" ng-controller="MainCtrlr" ui-view>{{greeting}}</div>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
 </body>
+
 </html>

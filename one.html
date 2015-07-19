@@ -1,0 +1,14 @@
+<body ng-app="myApp">
+<div ng-controller="textCtrlr"><textarea ng-model="symptom" placeholder="Patient has a swollen finger, thinks it may be broken, hurts touching it, at a crooked angle" cols="40" rows="5">Patient has a swollen finger, thinks it may be broken, hurts touching it, at a crooked angle</textarea>
+<button ng-click="myData.doClick(symptom)">Submit</button>
+<br>
+<ul>Concept List:
+<li ng-repeat="concept in conceptArray">{{concept}}</li>
+</ul>
+<ul>Diagnosis:
+  <li ng-repeat="x in diagnosis">
+    {{x}}</li>
+</ul>
+</div>
+
+</body>
