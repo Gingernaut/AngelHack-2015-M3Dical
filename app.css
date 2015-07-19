@@ -115,3 +115,12 @@ h1 {
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
 }
+
+.button {
+    border:1px solid blue;
+    height: 60px;
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom:   1em;
+    float: left;
+}

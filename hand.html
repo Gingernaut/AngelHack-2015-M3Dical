@@ -16,7 +16,80 @@
     #handimage img {
         margin-top: -5em;
     }
+
+    #brace {
+        width: 50px;
+        height: 120px;
+        background-color: #303030;
+        border: 1px solid black;
+        opacity: .5;
+        position: absolute;
+        margin-top: 270px;
+        margin-left: 500px;
+    }
 </style>
+<script>
+
+    var h = 120;
+    var w = 50;
+    var x = 530;
+    var y = 300;
+    var x_scale = 1;
+    var y_scale = 1;
+    var deg = 0;
+
+    var interval;
+    var brace;
+
+    var update_loc = function () {
+        brace = document.getElementById('brace');
+        brace.style.width = w * x_scale + 'px';
+        brace.style.height = h * y_scale + 'px';
+        brace.style.marginTop = y + 'px';
+        brace.style.marginLeft = x + 'px';
+        brace.style.transform = 'rotate(' + deg + 'deg)';
+    }
+
+    global.move_up = function () {
+        interval = setInterval(function () { y -= 1; update_loc(); }, 10);
+        console.log(interval);
+    }
+    global.move_down = function () {
+        interval = setInterval(function () { y += 1; update_loc(); }, 10);
+    }
+    global.move_left = function () {
+        interval = setInterval(function () { x -= 1; update_loc(); }, 10);
+    }
+    global.move_right = function () {
+        interval = setInterval(function () { x += 1; update_loc(); }, 10);
+    }
+    global.grow_w = function () {
+        interval = setInterval(function () { x_scale += .05; update_loc(); }, 25);
+    }
+    global.shrink_w = function () {
+        interval = setInterval(function () { x_scale -= .05; update_loc(); }, 25);
+    }
+    global.grow_h = function () {
+        interval = setInterval(function () { y_scale += .05; update_loc(); }, 25);
+    }
+    global.shrink_h = function () {
+        interval = setInterval(function () { y_scale -= .05; update_loc(); }, 25);
+    }
+    global.rot_left = function () {
+        interval = setInterval(function () { deg -= .2; update_loc(); }, 10);
+    }
+    global.rot_right = function () {
+        interval = setInterval(function () { deg += .2; update_loc(); }, 10);
+    }
+    global.stop = function () {
+        clearInterval(interval);
+    }
+
+    document.onmouseup = function () { clearInterval(interval); };
+
+    update_loc();
+
+</script>
 <html>
 <head>
     <script type="text/javascript">
@@ -29,9 +102,8 @@
 
         <h1>Place Hand Below</h1>
         <div id="handimage">
-            <!--
-            <img src="pictures/hand.png" />
-            <img src="pictures/hand1.png" />-->
+
+            <div id="brace"></div>
 
 
         </div>

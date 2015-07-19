@@ -19,7 +19,7 @@
 
             <div class="spacer"></div>
 
-            <h1 id="continue">Please place your injured hand on the matt below.</h1> <!-- what documents do we need? Also, continue should not appear untile documents are scanned-->
+            <h1 id="continue">Please place your injured hand on the pad below.</h1> <!-- what documents do we need? Also, continue should not appear untile documents are scanned-->
             <!-- maybe condtional formatting of the box, red you haven't scaned documents, green you're good to go-->
             <div id="selection">
                 <div class="svg-wrapper" id="login">
@@ -30,6 +30,44 @@
                         </div>
                     </svg>
                 </div>
+
+
+                <div class="button" id="up" onmousedown="global.move_up();" onmouseup="global.stop();">
+                   up
+                </div>
+                <div class="button" id="down" onmousedown="global.move_down();" onmouseup="global.stop();">
+                    down
+                </div>
+                <div class="button" id="left" onmousedown="global.move_left();" onmouseup="global.stop();">
+                    left
+                </div>
+                <div class="button" id="right" onmousedown="global.move_right();" onmouseup="global.stop();">
+                    right
+                </div>
+
+                <div class="button" id="grow_h" onmousedown="global.grow_h();" onmouseup="global.stop();">
+                    grow_h
+                </div>
+                <div class="button" id="shrink_h" onmousedown="global.shrink_h();" onmouseup="global.stop();">
+                    shrink_h
+                </div>
+                <div class="button" id="grow_w" onmousedown="global.grow_w();" onmouseup="global.stop();">
+                    grow_w
+                </div>
+                <div class="button" id="shrink_w" onmousedown="global.shrink_w();" onmouseup="global.stop();">
+                    shrink_w
+                </div>
+
+                <div class="button" id="rot_right" onmousedown="global.rot_right();" onmouseup="global.stop();">
+                    rot_right
+                </div>
+                <div class="button" id="rot_left" onmousedown="global.rot_left();" onmouseup="    global.stop();">
+                    rot_left
+                </div>
+
+
+
+
             </div>
             <script>
                 function capture() {
@@ -42,10 +80,14 @@
                         image.height = 720;
                         var result = matHandle.window.document.getElementById("handimage");
                         result.appendChild(image);
+
                     }).then(function () {
                     }).fail(function (e) {
                     });
                 }
+
+                
+
             </script>
 
         </div>
