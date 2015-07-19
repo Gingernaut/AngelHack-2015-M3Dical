@@ -1,0 +1,52 @@
+﻿
+<script>
+    global.openPage = function () {
+        window.location.href = "hand.html";
+
+    }
+
+</script>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <!--meta content- width, and scale; for touchscreen do I want this to be scalable?-->
+    <title>m3Dical</title>
+    <link rel="stylesheet" href="reset.css" type="text/css" />
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="app.js"></script>
+</head>
+<body>
+    <div id="outer_wrapper">
+        <div id="content">
+            <div class="spacer"></div>
+
+            <h1>Review final brace</h1>
+
+            <div id="splint_preview">Image of modified Scan should go here</div>
+
+            <div id="selection">
+                <div class="svg-wrapper" id="login">
+                    <svg height="60" width="20em" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="shape" height="60" width="320" />
+                        <div class="text">
+                            <a href=""><span></span>Print 3D brace</a>
+                        </div>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #splint_preview {
+            margin-top: 1.5em;
+            border: 2px solid green;
+            height: 400px;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+</body>
+</html>
