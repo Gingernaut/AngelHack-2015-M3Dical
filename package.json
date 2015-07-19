@@ -1,0 +1,14 @@
+{
+  "name": "SproutJSBinding",
+  "version": "0.2.0",
+  "description": "JavaScript Binding for HP Sprout",
+  "main": "index.html",
+  "window": {
+    "frame": false,
+    "width": 1920,
+    "height": 1080,
+    "fullscreen": false,
+    "toolbar": true,
+    "resizable": false
+  }
+}

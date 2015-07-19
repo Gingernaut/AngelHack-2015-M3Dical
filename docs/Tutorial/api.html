@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HP Sprout JavaScript Framework Reference Guide</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+	
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Sprout JavaScript API</a>
+            </div>
+            
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html">Getting Started</a>
+                        </li>
+                        <li>
+                            <a href="api.html">API Reference<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="api.html#capture">Capture</a>
+                                </li>
+                                <li>
+                                    <a href="api.html#tracking">Object Tracking</a>
+                                </li>
+                                <li>
+                                    <a href="api.html#misc">Miscellaneous</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a name="capture"><h1 class="page-header">Capture</h1></a>
+                </div>
+				<div>
+					<p>Sprout allows you to capture 3D objects using its multiple cameras; they capture images and their metadata. It allows you to capture multiple images at once, extract the outline, and extract text (if capturing a document)</p>
+					<p>Captured moments contain camera data (images and other data), but the images are not yet presentable. A moment that is created from an image contains the image. The SDK provides APIs for extracting pictures and outlines from both of these kinds of moments, as well as for refining the pictures and outlines.</p>
+					<p>To do a capture, use the method <code>capture()</code>:</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.capture(OPTIONAL_IMAGE_URL);
+	&lt;/script&gt;
+					</pre>
+					<p>If there is no parameter specified, it will capture object/s that are on the mat. This method also allows you to create a moment from an image file on disk by specifying the image URL.</p>
+					<p>From this captured moment, you are able to get the following:</p>
+				</div>
+				<div>
+					<h3>Segmented Images</h3>
+					<p>The extraction algorithms are optimized for extracting information from a captured moment that contains objects. The platform performs segmentation and returns all of the information about the requested items.</p>
+					<p>Use the method <code>getPicture(ID)</code> to extract the segmented images</p>
+					
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.capture().then(function(id){
+			return sprout.getPicture(id);
+		}).then(function(object){
+			//use object
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+					<p>This returns an object with all information about the segmented images.</p>
+					<img src="img/segmentation-return.png" style="border: solid 1px" width="30%"/>
+					<p><i>Note: Image returns a base 64 encoded string of the captured image</i></p>
+				</div>
+				<div>
+					<h3>Snapshot Image</h3>
+					<p>The extraction algorithms return only information that corresponds to the entire work area on the touch mat. Segmentation is not performed. One goal of this call is to return information as quickly as possible.</p>
+					<p>Use the method <code>getPicture(ID, sprout.SNAPSHOT)</code> to extract the segmented images</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.capture().then(function(id){
+			return sprout.getPicture(id, sprout.SNAPSHOT);
+		}).then(function(object){
+			//use object
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+					<p>This returns an object with all information about the snapshot image. The object structure is the same as for Segmented Images</p>
+				</div>
+				<div>
+					<h3>Outline</h3>
+					<p>The method <code>getOutline(ID)</code> gives the outline of the images</p>
+					<pre style="width:600px">
+	&lt;script&gt;(
+			var sprout = require(‘sprout’);
+			sprout.capture().then(function(id){
+				return sprout.getOutline(id);
+			}).then(function(object){
+				//use object
+			}).fail(function(err){
+				//error message
+			})
+		&lt;/script&gt;
+						</pre>
+						<p>This returns an object with all information about the outline of the image(s)</p>
+						<img src="img/outline-return.png" style="border: solid 1px" width="30%"/>
+						<p><i>Note: Contour returns a SVG Path Mini-Language. The <a href="http://www.w3schools.com/html/html5_svg.asp">HTML5 &lt;svg&gt;</a> element supports this.</i></p>
+					</div>
+					<div>
+						<h3>Text</h3>
+						<p>Sprout can capture and create moments that contain text elements, (e.g. post cards, recipes, receipts, etc.) The Sprout SDK can recognize text elements in image data in a moment.</p>
+					<p>Use the method <code>getText(ID)</code> to extract the text</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.capture().then(function(id){
+			return sprout.getText(id);
+		}).then(function(object){
+			//use object
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+					<p>This returns an object with the text elements</p>
+					<img src="img/text-return.png" style="border: solid 1px" width="30%"/>
+				</div>
+                <div class="col-lg-12">
+                    <a name="tracking"><h1 class="page-header">Object Tracking</h1></a>
+                </div>
+				<div>
+					<p>Sprout can recognize and track one or more 2D objects or 2D representations of 3D objects (such as photographs), that are placed on or held above the touchmat. You train Sprout to recognize the objects by providing the object-tracking handler with training images</p>
+				</div>
+				<div>
+					<h3>Training Images</h3>
+					<p>Training uses a set of one or more bitmap images of specific objects. The bitmaps can be created from pictures extracted from one or more moments; or from other images, (e.g. from the Web or taken with a digital camera.)</p>					
+					<p>Use the method <code>initializeObjectTracker()</code> to initialize the process. Then use the method <code>addTrainingImages(name, ID)</code> with a name to identify the image as well as the image captured via the API. To train multiple images in a session, initialize the process just once and call the method <code>addTrainingImages(name, ID)</code> multiple times.</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.initializeObjectTracker().then(function(){
+			return sprout.capture();
+		}).then(function(id){						
+			return sprout.addTrainingImages('image name', id);
+		}).then(function(data){
+			//will return a boolean value to indicate whether or not image was added successfully
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+				</div>				
+				<div>
+					<h3>Start Object Tracking</h3>
+					<p>After adding all the images that need to be trained, use the method <code>startTracking(CALLBACK FUNCTION)</code> to start the object tracking. The callback function is called every time sprout detects any of the tracked images. The callback function contains the tracked object data.</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		function callback(data) {
+                        //do something with the tracked data
+	        }
+		sprout.startTracking(callback).then(function(){
+			//do something once the callback is complete
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+					
+					<p>This 'data' contains an object with all information about the tracked image.</p>
+					<img src="img/tracking-return.png" style="border: solid 1px" width="15%"/>
+				</div>							
+				<div>
+					<h3>Stop Object Tracking</h3>
+					<p>Use the method <code>stopTracking()</code> to stop object tracking</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.stopTracking();
+	&lt;/script&gt;
+					</pre>
+				</div>
+                <div class="col-lg-12">
+                    <a name="misc"><h1 class="page-header">Miscellaneous</h1></a>
+                </div>				
+				<div>
+					<h3>Keyboard</h3>
+					<p>Use the method <code>showKeyboard()</code> or <code>hideKeyboard()</code> to show/hide the keyboard</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		sprout.showKeyboard().then(function(){
+			//do something 
+		}).fail(function(err){
+			//error message
+		})
+	&lt;/script&gt;
+					</pre>
+				</div>		
+				<div>
+					<h3>Mat</h3>
+					<p>Use the method <code>openMat(HTML_FILE_URL)</code> to show the mat window. You may specify a local or remote URL</p>
+					<pre style="width:600px">
+	&lt;script&gt;
+		var sprout = require(‘sprout’);
+		var matHandle = sprout.openMat('mat.html');
+	&lt;/script&gt;
+					</pre>
+					<p>As mentioned earlier, NW.js is based on Chromium. The <code>openMat()</code> function basically opens a new browser window packaged inside NW.js. The window properties such as window.opener can be used. <code>matHandle</code> is a handle to your mat screen that will allow you to communicate to it. In addition, NW.js has a global variable that will allow you to communicate between the two windows. More details at <a href="https://github.com/nwjs/nw.js/wiki/Transfer-objects-between-window-and-node">https://github.com/nwjs/nw.js/wiki/Transfer-objects-between-window-and-node</a></p>
+				</div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<!-- Metis Menu -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.js"></script>
+	
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HP Sprout JavaScript Framework Reference Guide</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+	
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Sprout JavaScript API</a>
+            </div>
+            
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html">Getting Started</a>
+                        </li>
+                        <li>
+                            <a href="#">API Reference <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="api.html#capture">Capture</a>
+                                </li>
+                                <li>
+                                    <a href="api.html#tracking">Object Tracking</a>
+                                </li>
+                                <li>
+                                    <a href="api.html#misc">Miscellaneous</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Getting Started</h1>
+                </div>
+				<div>
+					<p>Sprout by HP creates a revolutionary space that begs for creative play. The projected workspace surface allows natural and easily accessible actions. From sketching with your finger to capturing images instantly, there is no limit to what’s possible.</p>
+					<p>This document will helps you get started with developing a sprout application using JavaScript.</p>
+
+				</div>
+				<div>
+					<h2>Before you start</h2>
+				</div>
+				<div>
+					<p>The current JavaScript framework is based on an open source project <a href="https://github.com/nwjs/nw.js/">NW.js</a>. NW.js is an app runtime based on Chromium and node.js. Find more information on NW.js at <a href="https://github.com/nwjs/nw.js">"https://github.com/nwjs/nw.js</a></p>
+					<p>This guide walks you through the essential things needed to create a sprout application using NW.js. </p>
+				</div>
+				<div>
+					<h2>Hello Sprout!</h2>
+				</div>
+				<div>
+					<p>This section will help you create your first sprout application very quickly.</p>
+				</div>
+				<div>
+					<ol>
+						<li>
+							<h4>Download the sprout NW.js bundle</h4>
+							<p>We have prepared a NW.js application, bundled with the sprout API, allowing you to create your sprout application very quickly. You may download it from <a href="https://sprout.hp.com/developer/develop/download">https://sprout.hp.com/developer/develop/download</a>. This is based on NW.js v0.12.1 (based off of IO.js v1.2.0, Chromium 41.0.2272.76).</p>
+							<p><i>Note: If you would like to create an application using a different NW.js version, copy the sprout and edge node modules from this bundle. You may need to recompile edge.js based on your NW.js version.</i></p>
+						</li>
+						<li>
+							<h4>Run the application</h4>
+							<p>Extract the SproutHPJSFramework.zip file. Then, run nw.exe; A window opens with the following page:</p>
+							<img src="img/sprout-monitor.png" style="border: solid 1px" width="20%"/>
+							<p>This runs the index.html file that is in the root directory. If you would like to change the initial file, open package.json and change the property “main”</p>
+							<p>Close the window.</p>
+						</li>
+						<li>
+							<h4>Add a mat window</h4>
+							<p>To open a window on the mat, you will use the sprout API <code>openMat</code>. Open index.html in a text editor and add the following code inside the script tags.</p>
+							<pre style="width:500px">
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		var sprout = require('sprout');
+		var matHandle = sprout.openMat('mat.html');
+	&lt;/script&gt;
+							</pre>
+							<p><code>require('sprout')</code> allows you to load the sprout node module and use it in your code. </p>
+							<p><code>openMat()</code> accepts an argument on which URL to load. In the example above, we just loaded a simple html file to show on the mat. This function returns a handle that allows you to communicate with the mat.</p>
+							<p>Save your code and run nw.exe again. You should be able to see a window on the mat.</p>
+							<img src="img/sprout-monitor-mat.png" style="border: solid 1px" width="20%"/>
+							<p><strong>That's it! You have successfully created your sprout application.</strong></p>
+							<p>Refer to the API section on the left for the complete list of APIs that you can use</p>
+						</li>
+					</ol>
+				</div>
+                <div>
+                    <h2>Debugging</h2>
+                    <p>You must enable the toolbar to access the Console. Set the attribute <code>"toolbar": true</code> in package.json.</p>
+                    <p>Click the menu button on the top right to access the Developer Tools window, which contains the Console. There is a separate console for both the screen and mat windows.</p>
+                </div>				
+                <div>
+                    <h2>Running Sample Applications</h2>
+                    <p>Sample applications are provided in the <a href="https://sprout.hp.com/developer/develop/javascript">HP Sprout Developer Portal</a>. Follow these steps to run the sample application:</p>
+                    <ol>
+						<li>Download the JS Framework</li>
+						<li>Download the Sample Application and save it to the JS Framework folder (APPNAME.nw)</li>
+						<li>To run the application, either drag the APPNAME.nw to nw.exe or type <code>nw.exe APPNAME.nw</code> in the command line</li>
+					</ol>
+					<p>To view the code, rename APPNAME.nw to APPNAME.zip and then extract the package</p>
+                </div>
+                <div>
+                    <h2>What else can I do?</h2>
+                </div>
+                <div>
+                    <p>If you want your application to cover the entire vertical screen, including the Windows taskbar, add the property <code>"fullscreen": true</code> to your package.json file. Do not use the <em>kiosk</em> attribute, which renders the mat widow onto the vertical screen.</p>
+                    <p>The different manifest options are documented in <a href="https://github.com/nwjs/nw.js/wiki/Manifest-format">https://github.com/nwjs/nw.js/wiki/Manifest-format</a></p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<!-- Metis Menu -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.0/metisMenu.min.js"></script>
+	
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
