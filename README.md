@@ -10,7 +10,7 @@ HP Sprout scans their hand. The user uses the on-screen controls to manipulate a
 the Javascript manipulations are sent to a python function that modifies an STL file of a 3d brace. We display the brace with 
 Autodesk's API, then send the custom file to the 3D printer.
 
-Our project won Autodesk's first place prize, HP's second place price, and we were a AngelHack finalist.
+#Our project won Autodesk's first place prize, HP's second place price, and we were a AngelHack finalist.
 
 Code is mostly messy since a lot was written at 4:00am, but we plan on coming back through, tidying it up and fully implementing
 each of the features described above.
