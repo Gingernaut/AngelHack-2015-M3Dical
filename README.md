@@ -26,7 +26,4 @@ Next verison will correctly have the Snowmed API configured and return real pote
 The 3D preview is of an existing brace rather than the newly created one; it would take a while to show the new brace rather than
 a placeholder. We do create a new 3D print for the finger, we just display the old one however.
 
-In future versions we will: 1. clean up the code. 2. become HIPPA compliant. 3. Increase accuracy of document reader and formatting, 
-enable the data to be automaticically entered into the hospital system. 4. Fully connect the concept extractor to medical API's 
-5. Add other medical features beside creating braces; we could use the comuter's webcam to look for jaundiced eyes, etc. 6. Automatically
-send the new 3D finger brace to the hospital's 3D printer.
+In future versions we will: 1. clean up the code. 2. become HIPPA compliant. 3. Increase accuracy of document reader and formatting, enable the data to be automatically entered into the hospital system. 4. Fully connect the concept extractor to medical API's 5. Add other medical features beside creating braces; we could use the computer's webcam to look for jaundiced eyes, etc. 6. Automatically send the new 3D finger brace to the hospital's 3D printer.
